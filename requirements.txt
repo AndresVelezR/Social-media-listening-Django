@@ -1,0 +1,11 @@
+openai
+django
+python-dotenv
+numpy
+requests
+matplotlib
+plotly
+scipy
+scikit-learn
+tenacity
+pandas
