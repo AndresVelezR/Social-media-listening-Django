@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Comment
 #from product_recommendations_db import get_embedding, cosine_similarity
 import numpy as np
 import json
 from openai import OpenAI 
 from dotenv import load_dotenv, find_dotenv
 import os
+from django.db.models import IntegerField
+from django.db.models.functions import Cast
 
 #Se lee del archivo .env la api key de openai
 _ = load_dotenv('../openAI.env')
@@ -29,7 +31,9 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message.content
 
-def analyze_comments(request):
-    instruction = "Vas a actuar como un analizador de sentimientos para comentarios extraidos de twitter para un proyecto de social media listening, debes ser capaz de explicar las razones por las se pudo haber escrito el comentario y las posibles razones de las intenciones de este "
-    
-    return render()
+def show_comments(request):
+    comments = Comment.objects.annotate(
+        classification_int=Cast('clasification', IntegerField())
+        ).order_by('classification_int')
+
+    return render(request, 'show_comments.html', {'comments': comments})
