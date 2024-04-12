@@ -1,3 +1,4 @@
+selenium
 openai
 django
 python-dotenv
