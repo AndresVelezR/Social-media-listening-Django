@@ -7,7 +7,7 @@ from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv
 import os
 from django.db.models import IntegerField
-from django.db.models.functions import Cast
+from django.db.models.functions import Cast 
 
 #Se lee del archivo .env la api key de openai
 _ = load_dotenv('../openAI.env')
