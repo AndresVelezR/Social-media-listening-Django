@@ -1,3 +1,6 @@
+# environment variables
+.env
+
 ### Django ###
 *.log
 *.pot
@@ -25,7 +28,7 @@ openAI.env
 
 # Distribution / packaging
 .Python
-build/
+build/cambiar nombre a auna rama
 develop-eggs/
 dist/
 downloads/
