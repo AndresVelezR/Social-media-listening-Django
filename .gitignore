@@ -1,6 +1,6 @@
 # environment variables
 .env
-
+*.json
 ### Django ###
 *.log
 *.pot
