@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Comentarios</title>
+</head>
+<body>
+    <h1>Clasificación de Comentarios</h1>
+    
+    <h2>Comentarios Positivos: {{ positive|length }}</h2>
+    <ul>
+        {% for comment in positive %}
+            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
+        {% endfor %}
+    </ul>
+    
+    <h2>Comentarios Neutros: {{ neutral|length }}</h2>
+    <ul>
+        {% for comment in neutral %}
+            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
+        {% endfor %}
+    </ul>
+    
+    <h2>Comentarios Negativos: {{ negative|length }}</h2>
+    <ul>
+        {% for comment in negative %}
+            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
