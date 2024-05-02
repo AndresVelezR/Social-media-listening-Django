@@ -37,3 +37,23 @@ def show_comments(request):
         ).order_by('classification_int')
 
     return render(request, 'show_comments.html', {'comments': comments})
+
+def clasification(request):
+    comments = Comment.objects.all()
+
+    positive = []
+    negative = []
+    neutral = []
+    for comment in comments:
+        clasification = int(comment.clasification)
+        if clasification >  5:
+            positive.append(comment)
+       
+        elif clasification == 5:
+            neutral.append(comment)
+      
+        else:
+            negative.append(comment)
+            
+
+    return render(request, 'stats.html',{'positive': positive, 'neutral': neutral, 'negative': negative})
