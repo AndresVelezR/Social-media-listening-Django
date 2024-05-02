@@ -39,7 +39,9 @@ def show_comments(request):
     return render(request, 'show_comments.html', {'comments': comments})
 
 def clasification(request):
-    comments = Comment.objects.all()
+    comments = Comment.objects.annotate(
+        classification_int=Cast('clasification', IntegerField())
+        ).order_by('classification_int')
 
     positive = []
     negative = []

@@ -1,0 +1,25 @@
+
+/* Ajustes para los enlaces de la barra de navegación */
+.navbar-nav .nav-link {
+    color: #333; /* Cambia el color de los enlaces */
+    font-weight: bold; /* Hace que el texto de los enlaces sea negrita */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Cambia el color al pasar el mouse sobre los enlaces */
+}
+
+.navbar-brand img {
+    background-color: #4875af;
+    margin-right: 0px;
+    margin-left: 0px; /* Establece el margen izquierdo a 0px */
+}
+
+/* Estilos para la barra de navegación */
+#barrNA {
+    background-color: #4875af; /* Azul claro */
+}
+
+#barraR {
+    background-color: #4875af;
+}

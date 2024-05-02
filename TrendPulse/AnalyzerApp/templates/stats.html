@@ -1,32 +1,57 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clasificación de Comentarios</title>
-</head>
-<body>
-    <h1>Clasificación de Comentarios</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <h1 class="text-center mb-4">Clasificación de Comentarios</h1>
     
-    <h2>Comentarios Positivos: {{ positive|length }}</h2>
-    <ul>
-        {% for comment in positive %}
-            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
-        {% endfor %}
-    </ul>
-    
-    <h2>Comentarios Neutros: {{ neutral|length }}</h2>
-    <ul>
-        {% for comment in neutral %}
-            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
-        {% endfor %}
-    </ul>
-    
-    <h2>Comentarios Negativos: {{ negative|length }}</h2>
-    <ul>
-        {% for comment in negative %}
-            <li>{{comment.clasification}} {{ comment.tweet }}</li> <!-- Aquí podrías mostrar los detalles del comentario si lo deseas -->
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card border-success mb-4" style="height: auto;">
+                <div class="card-body flex-column">
+                    <h5 class="card-title text-success">Comentarios Positivos: {{ positive|length }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for comment in positive %}
+                        <li class="list-group-item">
+                            <p><strong>Calificación: </strong>{{ comment.clasification }}</p>
+                            <p><strong>Tweet: </strong>{{ comment.tweet }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card border-warning mb-4" style="height: auto;">
+                <div class="card-body flex-column">
+                    <h5 class="card-title text-warning">Comentarios Neutros: {{ neutral|length }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for comment in neutral %}
+                        <li class="list-group-item">
+                            <p><strong>Calificación: </strong>{{ comment.clasification }}</p>
+                            <p><strong>Tweet: </strong>{{ comment.tweet }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card border-danger mb-4" style="height: auto;">
+                <div class="card-body flex-column">
+                    <h5 class="card-title text-danger">Comentarios Negativos: {{ negative|length }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for comment in negative %}
+                        <li class="list-group-item">
+                            <p><strong>Calificación: </strong>{{ comment.clasification }}</p>
+                            <p><strong>Tweet: </strong>{{ comment.tweet }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
