@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Comentarios{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/show_recommendations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/show_recommendations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body id="barrNA">
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3" style="margin-left: 0; margin-right: 0;">
+            <div class="logo">
+                <a href="{% url 'show_comments' %}"><img style="width: 25%; height: 25%;" src="{% static 'images/logo.png' %}" alt="Logo TrendPulse"></a>       
+            </div>
+            <div class="container-fluid">
+            
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-link" href="{% url 'show_comments' %}">Home</a>
+                        <a class="nav-link" href="{% url 'clasification'%}">Clasificación</a>
+                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#">About us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <!-- Script de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
