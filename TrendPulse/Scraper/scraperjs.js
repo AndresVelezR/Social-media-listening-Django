@@ -1,4 +1,7 @@
 import puppeteer from "puppeteer";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+require('dotenv').config();
 
 const scrollLikeHuman = async (page, limit) => {
   let tws = [];
@@ -17,7 +20,7 @@ const scrollLikeHuman = async (page, limit) => {
 
         const tweets = document.querySelectorAll('article[data-testid="tweet"]')
         const data = [...tweets].map(quote => {
-            const txt = quote.querySelector('div[class="css-175oi2r"] div[class="css-1rynq56 r-8akbws r-krxsd3 r-dnmrzs r-1udh08x r-bcqeeo r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-16dba41 r-bnwqim"] span').innerText
+            const txt = quote.querySelector('div[data-testid="tweetText"]').innerText
             return {
                 txt, 
             }
@@ -33,7 +36,6 @@ const scrollLikeHuman = async (page, limit) => {
       if (counter == limit){
         return tws
       }
-
   }
   }
     catch{}
@@ -44,13 +46,36 @@ const scrollLikeHuman = async (page, limit) => {
 };
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
-  await page.goto("https://twitter.com/WestCOL_");
+  const browser = await puppeteer.launch(
+    {
+    headless: false,
+    }
+)
+  const page = await browser.newPage()
+  await page.setViewport({height:900, width:1440});
+  await page.goto('https://twitter.com/?lang=es')
   await new Promise(r => setTimeout(r, 5000));
 
-  const tweets = await scrollLikeHuman(page, 10);
-  console.log(tweets)
+  await page.evaluate(() => {
+    const xpath = '//span[contains(text(), "Iniciar sesión")]';
+    const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+  
+    result.iterateNext().click();
+  })
+  await new Promise(r => setTimeout(r, 5000));
+
+  await page.type('input[autocomplete="username"]', process.env.USERNAME);
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+  await page.type('input[name="password"]', process.env.PASSWORD);
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+  await page.type('input[aria-label="Búsqueda"]', 'westcol');
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+
+  const result = await scrollLikeHuman(page, 10);
+  console.log(result);
 
   await browser.close();
 })();
