@@ -42,7 +42,7 @@ for i in range(len(comments)):
     comments[i]['analysis'] = response
     comments[i]['clasification'] = response2
 
-file_path1 = "'AnalyzerApp/management/commands/comments_description_db.json'"
+file_path1 = "AnalyzerApp/management/commands/comments_db.json"
 
 with open(file_path1, 'w') as json_file:
     json.dump(comments, json_file, indent=4)  # The 'indent' parameter is optional for pretty formatting
