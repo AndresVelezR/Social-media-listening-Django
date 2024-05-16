@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Analytics Ireland</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+
+<p>Post some values to a json file</p>
+
+<label for="fname">First name:</label> <input type="text" id="fname" name="fname">
+<label for="lname">Last name:</label><input type="text" id="lname" name="lname">
+<button type="button" onclick="myfunction();">Click Here to see your data</button>
+
+<script>
+function myfunction() {
+    //const firstname = document.getElementById("fname").value;
+    //const lastname = document.getElementById("lname").value;
+    //const dict_values = {firstname, lastname};
+    var data = [
+    {
+        "user_tag": "CW+ Noticias\n@CWMasNoticias\n\u00b7\n7h",
+        "time_stamp": "2024-04-11T17:01:36.000Z",
+        "tweet": "COLOMBIA | En las \u00faltimas horas se confirm\u00f3 la venta de la casa de Aida Victoria Merlano. Pues, Luis Villa (Westcol), su actual pareja, explic\u00f3 que Stiven Mesa Londo\u00f1o, cantante de m\u00fasica urbana reconocido como \u2018Blessd\u2019, adquiri\u00f3 la propiedad ubicada en la Loma del Escobero.\u2026",
+        "reply": 177,
+        "retweet": 168,
+        "like": 652,
+        "visualizations": 205598,
+        "analysis": "Este comentario parece estar informando sobre la reciente venta de la casa de Aida Victoria Merlano, y menciona que fue adquirida por Stiven Mesa Londo\u00f1o, conocido como 'Blessd'. Es posible que el usuario CW+ Noticias est\u00e9 compartiendo esta noticia para informar a su audiencia sobre un evento relevante en Colombia.\n\nLas posibles razones por las que se escribi\u00f3 este comentario podr\u00edan ser para generar inter\u00e9s en la noticia, informar a la audiencia sobre eventos actuales en el pa\u00eds, o simplemente compartir informaci\u00f3n relevante sobre figuras p\u00fablicas como Aida Victoria Merlano y Stiven Mesa Londo\u00f1o.\n\nLas intenciones detr\u00e1s de este comentario podr\u00edan ser informar, generar discusi\u00f3n o simplemente compartir informaci\u00f3n relevante. Es importante considerar el contexto en el que se public\u00f3 este comentario y la audiencia a la que est\u00e1 dirigido para comprender mejor las razones y las intenciones detr\u00e1s de \u00e9l.",
+        "clasification": "7"
+    },
+    {
+        "user_tag": "EL TRONO\n@ElTronoKL\n\u00b7\n7 abr.",
+        "time_stamp": "2024-04-08T02:22:31.000Z",
+        "tweet": "#KingsLeague | \u00daLTIMA HORA \n\n La clave para que Jhonsito tenga mayor efectividad la tiene WestCol",
+        "reply": 6,
+        "retweet": 6,
+        "like": 343,
+        "visualizations": 48902,
+        "analysis": "Este comentario parece estar hablando sobre la importancia de que Jhonsito tenga una mayor efectividad en algo relacionado con el \"KingsLeague\". Es posible que Jhonsito sea un jugador o participante en esta liga y que WestCol sea una clave para que pueda mejorar su rendimiento. El usuario \"EL TRONO\" parece estar apoyando a Jhonsito y sugiriendo que WestCol es fundamental para que logre tener m\u00e1s \u00e9xito en la liga. Es probable que el comentario est\u00e9 destinado a motivar a Jhonsito y a destacar la importancia de WestCol en su desempe\u00f1o.",
+        "clasification": "7"
+    },
+    {
+        "user_tag": "Agudelo\n@Agudelo07_\n\u00b7\n4 abr.",
+        "time_stamp": "2024-04-04T16:34:33.000Z",
+        "tweet": "Los mexichangos y espa\u00f1oles de mierda peleando contra westcol por que no tiene dinero\n\nWestcol con su reloj y su cadena de m\u00e1s de 350k de d\u00f3lares ",
+        "reply": 0,
+        "retweet": 2,
+        "like": 48,
+        "visualizations": 4542,
+        "analysis": "Este comentario parece ser una cr\u00edtica hacia la situaci\u00f3n de conflicto entre mexicanos, espa\u00f1oles y westcol (posiblemente una referencia a personas de Colombia) por cuestiones de dinero. La expresi\u00f3n \"mexichangos y espa\u00f1oles de mierda\" denota un tono despectivo y de desprecio hacia estas nacionalidades, posiblemente reflejando un sentimiento de envidia o resentimiento por parte del autor.\n\nLa menci\u00f3n de westcol con un reloj y cadena de m\u00e1s de 350k de d\u00f3lares parece ser una forma de resaltar la ostentaci\u00f3n y el lujo de esta persona, lo cual podr\u00eda estar generando envidia o cr\u00edticas por parte del autor del comentario. La referencia al usuario Agudelo podr\u00eda indicar que este individuo es conocido por su riqueza o por su estilo de vida lujoso.\n\nEn resumen, este comentario parece reflejar sentimientos de envidia, resentimiento y cr\u00edtica hacia personas de diferentes nacionalidades que se ven envueltas en conflictos por cuestiones de dinero y ostentaci\u00f3n.",
+        "clasification": "1"
+    },
+    {
+        "user_tag": "sof\n@sofval_09\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-05T19:30:23.000Z",
+        "tweet": "nunca Westcol me represent\u00f3 tanto",
+        "reply": 1,
+        "retweet": 5,
+        "like": 9,
+        "visualizations": 2185,
+        "analysis": "Este comentario parece indicar que el usuario sof no se siente representado por la marca Westcol. Las posibles razones detr\u00e1s de este sentimiento podr\u00edan ser que la marca no cumple con las expectativas del usuario en cuanto a calidad, precio, valores de la empresa, o simplemente no se identifica con la imagen o mensaje que la marca transmite.\n\nLas intenciones detr\u00e1s de este comentario podr\u00edan ser expresar su descontento con la marca, buscar apoyo o validaci\u00f3n de otros usuarios que puedan sentir lo mismo, o simplemente compartir su opini\u00f3n con su audiencia en Twitter. Es importante tener en cuenta que este comentario es subjetivo y refleja la percepci\u00f3n personal del usuario sof sobre la marca Westcol.",
+        "clasification": "8"
+    },
+    {
+        "user_tag": "manuel\n@ManuelC_8\n\u00b7\n10 abr.",
+        "time_stamp": "2024-04-10T22:21:38.000Z",
+        "tweet": "JAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJA Gracias \n@WestCOL_\n por darle luz a tus seguidores",
+        "reply": 0,
+        "retweet": 1,
+        "like": 5,
+        "visualizations": 428,
+        "analysis": "El comentario \"JAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJA Gracias @WestCOL_ por darle luz a tus seguidores\" parece ser una expresi\u00f3n de alegr\u00eda y agradecimiento. La repetici\u00f3n de \"JAJA\" sugiere que el usuario encontr\u00f3 algo muy gracioso o divertido, posiblemente relacionado con el contenido compartido por @WestCOL_. La frase \"por darle luz a tus seguidores\" indica que el usuario aprecia la informaci\u00f3n o el entretenimiento proporcionado por @WestCOL_ y lo considera valioso para sus seguidores. En general, parece ser un comentario positivo y entusiasta.",
+        "clasification": "8"
+    },
+    {
+        "user_tag": "THRIVE\n@ThriveForeverX\n\u00b7\n6 abr.",
+        "time_stamp": "2024-04-06T07:01:53.000Z",
+        "tweet": "Bad Bunny out partying with Columbian Kick streamer Westcol ",
+        "reply": 181,
+        "retweet": 204,
+        "like": 2941,
+        "visualizations": 692846,
+        "analysis": "El comentario \"Bad Bunny out partying with Columbian Kick streamer Westcol\" puede tener varias interpretaciones y posibles intenciones por parte del usuario THRIVE. \n\n1. Positiva: El usuario podr\u00eda estar expresando admiraci\u00f3n o emoci\u00f3n por la idea de que Bad Bunny, un famoso cantante de reggaet\u00f3n, est\u00e9 disfrutando de una fiesta con Westcol, un popular streamer de videojuegos. En este caso, el comentario podr\u00eda reflejar entusiasmo por la combinaci\u00f3n de dos figuras p\u00fablicas de diferentes \u00e1mbitos en un mismo evento.\n\n2. Neutra: El usuario simplemente podr\u00eda estar informando sobre la situaci\u00f3n sin emitir juicios de valor. En este caso, el comentario ser\u00eda simplemente descriptivo y objetivo, sin implicar ninguna emoci\u00f3n particular.\n\n3. Negativa: Por otro lado, el comentario tambi\u00e9n podr\u00eda tener una connotaci\u00f3n negativa si el usuario est\u00e1 criticando la decisi\u00f3n de Bad Bunny de salir de fiesta en lugar de dedicarse a su carrera musical, o si considera que la presencia de Westcol en la fiesta es inapropiada por alguna raz\u00f3n. En este caso, el comentario podr\u00eda reflejar desaprobaci\u00f3n o descontento.\n\nEn resumen, el comentario \"Bad Bunny out partying with Columbian Kick streamer Westcol\" puede interpretarse de diferentes maneras dependiendo del contexto y las intenciones del usuario THRIVE. Es importante considerar el tono y el contexto en el que se escribi\u00f3 el comentario para comprender completamente su significado.",
+        "clasification": "5"
+    },
+    {
+        "user_tag": "South\n@SouthCOL_\n\u00b7\n8 abr.",
+        "time_stamp": "2024-04-09T02:34:40.000Z",
+        "tweet": "Toda tu comunidad te quiere y te admira por todo lo que haz logrado, inspiras a miles de personas, te mandamos \u00e1nimos de parte de todo aquel al que le hayas sacado una sonrisa en alg\u00fan momento. En las buenas y en las malas tu comunidad siempre estar\u00e1. \n@WestCOL_",
+        "reply": 0,
+        "retweet": 50,
+        "like": 979,
+        "visualizations": 16185,
+        "analysis": "Este comentario parece ser muy positivo y lleno de admiraci\u00f3n hacia la persona mencionada, en este caso @WestCOL_. Las posibles razones por las que se pudo haber escrito este comentario podr\u00edan ser:\n\n1. Agradecimiento por la inspiraci\u00f3n: Es posible que el usuario South haya sentido la necesidad de expresar su admiraci\u00f3n y agradecimiento hacia @WestCOL_ por ser una fuente de inspiraci\u00f3n para \u00e9l y para muchas otras personas.\n\n2. Apoyo en momentos dif\u00edciles: El comentario menciona que la comunidad estar\u00e1 presente tanto en los momentos buenos como en los malos, lo que sugiere que el usuario South quiere brindar apoyo y \u00e1nimo a @WestCOL_ en caso de que est\u00e9 pasando por alguna dificultad.\n\n3. Reconocimiento por el impacto positivo: El comentario destaca que @WestCOL_ ha logrado sacar sonrisas a miles de personas, lo que indica que el usuario South valora el impacto positivo que esta persona ha tenido en la comunidad.\n\nEn resumen, este comentario parece ser una muestra de aprecio, admiraci\u00f3n y apoyo hacia @WestCOL_, resaltando su capacidad para inspirar a otros y generar un impacto positivo en la comunidad.",
+        "clasification": "10"
+    },
+    {
+        "user_tag": "Elektra\n@drayasmin\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-05T17:34:52.000Z",
+        "tweet": "Nauterplay en su \u00faltimo video resume muy bien la pol\u00e9mica entre WestCol e Ibai.\n\nTodo comienza con WestCol diciendo que el tiene en contrato de streaming m\u00e1s grande de toda habla hispana y que gana incluso m\u00e1s que Ibai, que el cree que Ibai nisiquiera tiene contrato actualmente.\u2026",
+        "reply": 7,
+        "retweet": 2,
+        "like": 14,
+        "visualizations": 5624,
+        "analysis": "Este comentario parece estar expresando una opini\u00f3n positiva sobre el video de Nauterplay, el cual resume una pol\u00e9mica entre WestCol e Ibai. El usuario parece estar de acuerdo con la forma en que se abord\u00f3 el tema en el video y considera que se hizo un buen trabajo al resumir la situaci\u00f3n.\n\nLas posibles razones por las que se escribi\u00f3 este comentario podr\u00edan ser:\n\n1. Inter\u00e9s en la pol\u00e9mica entre WestCol e Ibai: Es posible que el usuario est\u00e9 interesado en el mundo del streaming y en las controversias que surgen entre los streamers m\u00e1s populares, por lo que le pareci\u00f3 interesante el contenido del video de Nauterplay.\n\n2. Apreciaci\u00f3n por el trabajo de Nauterplay: Es probable que el usuario sea seguidor de Nauterplay y valore su capacidad para resumir y analizar situaciones complejas de forma clara y concisa.\n\nEn cuanto a las posibles intenciones detr\u00e1s del comentario, podr\u00edan ser:\n\n1. Compartir una opini\u00f3n positiva: El usuario podr\u00eda estar compartiendo su opini\u00f3n sobre el video con otros usuarios de Twitter que tambi\u00e9n est\u00e9n interesados en el tema, con el objetivo de generar debate o intercambiar puntos de vista.\n\n2. Apoyar a Nauterplay: Es posible que el usuario quiera mostrar su apoyo a Nauterplay y promocionar su contenido, ya sea por afinidad con su estilo de contenido o por considerar que merece m\u00e1s reconocimiento en la comunidad de streaming.\n\nEn resumen, el comentario parece reflejar una opini\u00f3n positiva sobre el video de Nauterplay y su capacidad para resumir la pol\u00e9mica entre WestCol e Ibai, mostrando inter\u00e9s en el tema y apreciaci\u00f3n por el trabajo del creador de contenido.",
+        "clasification": "3"
+    },
+    {
+        "user_tag": "Universo Kings League\n@UniversoKingsL\n\u00b7\n4 abr.",
+        "time_stamp": "2024-04-04T12:59:01.000Z",
+        "tweet": "WESTCOL ARREMETE CONTRA LA #KingsLeague \n\n\"Se quedan los patrocinios, se quedan la plata, se quedan la plata de las camisetas, se quedan TODO\"\n\n#KingsLeagueAmericas",
+        "reply": 232,
+        "retweet": 96,
+        "like": 2721,
+        "visualizations": 466465,
+        "analysis": "Este comentario parece expresar frustraci\u00f3n y descontento hacia la organizaci\u00f3n Westcol en relaci\u00f3n a la #KingsLeague. La persona que escribi\u00f3 este comentario parece estar molesta porque siente que Westcol est\u00e1 aprovech\u00e1ndose de la situaci\u00f3n y se est\u00e1 quedando con todos los beneficios econ\u00f3micos de la liga. Es posible que esta persona sea seguidora de la Kings League y sienta que Westcol est\u00e1 actuando de manera injusta o ego\u00edsta.\n\nLas posibles razones por las que se pudo haber escrito este comentario podr\u00edan ser que la persona haya notado un comportamiento injusto por parte de Westcol, que haya sentido que la empresa est\u00e1 priorizando sus intereses econ\u00f3micos por encima de los de los participantes o seguidores de la liga, o que simplemente est\u00e9 expresando su descontento con la situaci\u00f3n actual de la Kings League.",
+        "clasification": "2"
+    },
+    {
+        "user_tag": "Kick Espa\u00f1ol\n@KickEspanol\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-06T04:32:06.000Z",
+        "tweet": "Ya le dimos uno a \n@WestCOL_\n tambien",
+        "reply": 14,
+        "retweet": 29,
+        "like": 1022,
+        "visualizations": 56479,
+        "analysis": "El comentario \"Ya le dimos uno a @WestCOL_\" puede interpretarse de diferentes maneras dependiendo del contexto en el que se escribi\u00f3. \n\n1. Positiva: Puede ser una expresi\u00f3n de apoyo o felicitaci\u00f3n hacia @WestCOL por alg\u00fan logro o \u00e9xito que haya tenido recientemente. En este caso, el comentario podr\u00eda estar indicando que se le ha dado un reconocimiento o premio a @WestCOL.\n\n2. Negativa: Por otro lado, tambi\u00e9n podr\u00eda interpretarse como una cr\u00edtica o burla hacia @WestCOL. En este caso, el comentario podr\u00eda estar insinuando que se le ha dado una lecci\u00f3n o se le ha derrotado de alguna manera a @WestCOL en una discusi\u00f3n o competencia.\n\nEn resumen, el comentario \"Ya le dimos uno a @WestCOL\" puede tener intenciones tanto positivas como negativas, y es importante considerar el contexto en el que se escribi\u00f3 para entender mejor el significado detr\u00e1s de estas palabras.",
+        "clasification": "7"
+    }
+]
+    const s = JSON.stringify(data);
+
+    $.ajax({
+        url: "/submit_json/",  // Cambiar la URL a la que deseas enviar el JSON
+        type: "POST",
+        contentType: "application/json",
+        data: s,
+        success: function(response) {
+            alert('JSON enviado correctamente');
+            window.location.href = '/resultado/';
+        },
+        error: function(xhr, status, error) {
+            alert('Error al enviar JSON: ' + error);
+        }
+    });
+}
+</script>
+
+</body>
+</html>

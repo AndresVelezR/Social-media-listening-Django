@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Data Analytics Ireland</title></head>
+<body>
+
+<P>Post some values to a json file</P>
+
+
+<label for="fname">First name:</label> <input type="text" id="fname" name="fname">
+<label for="lname">Last name:</label><input type="text" id="lname" name="lname">
+<button type="submit" onclick='myfunction();'>Click Here to see your data</button>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+    function myfunction() {
+
+        const firstname = document.getElementById("fname").value;
+        const lastname = document.getElementById("lname").value;
+
+
+        const dict_values = {firstname, lastname} //Pass the javascript variables to a dictionary.
+        const s = JSON.stringify(dict_values); // Stringify converts a JavaScript object or value to a JSON string
+        console.log(s); // Prints the variables to console window, which are in the JSON format
+        window.alert(s)
+        $.ajax({
+            url:"/test",
+            type:"POST",
+            contentType: "application/json",
+            data: JSON.stringify(s)});
+
+}
+
+</script>
+
+
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Analytics Ireland</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+
+<p>Post some values to a json file</p>
+
+<label for="fname">First name:</label> <input type="text" id="fname" name="fname">
+<label for="lname">Last name:</label><input type="text" id="lname" name="lname">
+<button type="button" onclick="myfunction();">Click Here to see your data</button>
+
+<script>
+function myfunction() {
+    const firstname = document.getElementById("fname").value;
+    const lastname = document.getElementById("lname").value;
+    const dict_values = {firstname, lastname};
+    const s = JSON.stringify(dict_values);
+
+    $.ajax({
+        url: "/submit_json/",  // Cambiar la URL a la que deseas enviar el JSON
+        type: "POST",
+        contentType: "application/json",
+        data: s,
+        success: function(response) {
+            alert('JSON enviado correctamente');
+            window.location.href = '/resultado/';
+        },
+        error: function(xhr, status, error) {
+            alert('Error al enviar JSON: ' + error);
+        }
+    });
+}
+</script>
+
+</body>
+</html>

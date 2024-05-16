@@ -8,6 +8,14 @@ from dotenv import load_dotenv, find_dotenv
 import os
 from django.db.models import IntegerField
 from django.db.models.functions import Cast 
+import matplotlib.pyplot as plt
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
+from django.urls import reverse
+
+
 
 #Se lee del archivo .env la api key de openai
 _ = load_dotenv('../openAI.env')
@@ -59,3 +67,52 @@ def clasification(request):
             
 
     return render(request, 'stats.html',{'positive': positive, 'neutral': neutral, 'negative': negative})
+
+def show_chart(request):
+    comments = Comment.objects.all()
+    pos = 0
+    neu = 0
+    neg = 0
+    for comment in comments:
+        clasification = int(comment.clasification)
+        if clasification >  5:
+            pos += 1
+       
+        elif clasification == 5:
+            neu += 1
+      
+        else:
+            neg +=1
+    
+    x = ['pos', 'neu', 'neg']
+    y = [6, 3, 1]
+    colors = ['green', 'yellow', 'red']
+
+    plt.subplot(2,2,1)
+    plt.bar(x,y, color=colors)
+    ruta = 'AnalyzerApp/static/images/matplot2.jpg'
+    plt.savefig(ruta)
+    plt.close()
+    return render(request, 'graph.html')
+
+def index_view(request):
+    return render(request, 'index.html')
+
+@csrf_exempt
+def submit_json_view(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        with open('datos.json', 'w') as f:
+            json.dump(data, f)
+        print("JSON guardado correctamente.")
+        # Redirigir a la vista de resultado
+        return redirect(reverse('resultado'))
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Only POST requests are allowed'})
+
+def resultado_view(request):
+    # Leer el diccionario desde el archivo JSON
+    with open('datos.json', 'r') as f:
+        data = json.load(f)
+    return render(request, 'sera.html', {'data': data})
+        

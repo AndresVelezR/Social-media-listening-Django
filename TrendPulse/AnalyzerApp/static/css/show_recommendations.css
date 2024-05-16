@@ -1,12 +1,4 @@
-.navbar-brand img {
-    margin-right: 0px;
-    margin-left: 0px; /* Establece el margen izquierdo a 0px */
-}
 
-/* Estilos para la barra de navegación */
-#barrNA {
-    background-color: #4875af; /* Azul claro */
-}
 
 /* Estilos para los resultados de los comentarios */
 .card {
