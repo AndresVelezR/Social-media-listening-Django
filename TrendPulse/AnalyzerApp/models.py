@@ -15,10 +15,9 @@ class Comment(models.Model):
     reply = models.IntegerField(blank=True, null=True)
     retweet = models.IntegerField(blank=True, null=True)
     like = models.IntegerField(blank=True, null=True)
-    visualizations = models.IntegerField(blank=True, null=True)
-    analysis = models.TextField(max_length=2000)
-    clasification = models.CharField(max_length=11)
-    emb = models.BinaryField(default=get_default_array())
+    analysis = models.TextField(max_length=2000, blank=True, null=True)
+    clasification = models.CharField(max_length=11, blank=True, null=True)
+    emb = models.BinaryField(default=get_default_array(), blank=True, null=True)
     
 
     def __str__(self):

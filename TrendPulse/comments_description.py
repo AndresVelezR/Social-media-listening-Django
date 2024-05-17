@@ -1,10 +1,21 @@
 #importar librerías
 import os
 import openai
-from openai import OpenAI
+#from openai import OpenAI
 import json
 from dotenv import load_dotenv, find_dotenv
+import openai
+from packaging import version
+required_version = version.parse("1.1.1")
+current_version = version.parse(openai.__version__)
 
+if current_version < required_version:
+    raise ValueError(f"Error: OpenAI version {openai.__version__}"
+                     " is less than the required version 1.1.1")
+else:
+    print("OpenAI version is compatible.")
+
+from openai import OpenAI    
 _ = load_dotenv('../openAI.env')
 client = OpenAI(
     api_key=os.environ.get('openAI_api_key'),
