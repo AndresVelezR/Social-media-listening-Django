@@ -1,0 +1,49 @@
+/* 
+    Handcoded by JAC - Johnny Alimoot C.
+*/
+@font-face {
+    font-family: 'damion';
+    src: url('../font/Damion.ttf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'nunito';
+    src: url('../font/Nunito-Regular.ttf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'nunito';
+    src: url('../font/Nunito-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'nunito';
+    src: url('../font/Nunito-Italic.ttf');
+    font-style: italic;
+    font-display: swap;
+}
+
+.ff-damion{
+    font-family: 'damion';
+    font-weight: normal !important;
+}
+
+.fc-white{
+    color: var(--textWhite);
+}
+
+.fc-primary{
+    color: var(--primaryColor);
+}
+
+.fw-normal{
+    font-weight: normal !important;
+}
+.fw-bold{
+    font-weight: bold !important;
+}
+
+.ta-center{
+    text-align: center;
+}
