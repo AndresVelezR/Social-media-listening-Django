@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load plotly_dash %}
+
+<div style="margin-bottom: 100px;">
+  <h1><strong>Analysis</strong></h1>
+</div>
+
+<div class="grid gap-12 grid-cols-2">
+{% for i in comments %}
+<div class="grid__item item w-100 text-white relative">
+  <div class="item__content h-full w-full p-4 bg-black relative border-2 flex flex-col">
+    <div class="font-bold mb-2">Comentario:</div>
+    <p class="flex-grow mb-2">{{i.tweet}}</p>
+    <div class="font-bold mb-2">Analisis:</div>
+    <p class="flex-grow mb-2">{{i.analysis}}</p>
+    <div class="font-bold mb-2">Calificación: {{i.clasification}}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

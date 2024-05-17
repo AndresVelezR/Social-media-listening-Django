@@ -1,0 +1,87 @@
+{% load static %}
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion custom-bg-color" id="accordionSidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img src="{% static 'images/spider.png' %}" alt="Logo" style="max-width: 50px;">
+        </div>
+        <div class="sidebar-brand-text mx-3">Spider Web</div>
+    </a>>
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Visualitation
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);" onclick="submitForm()">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Comments</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);" onclick="submitForm2()">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Analysis</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'charts'%}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Charts</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Sidebar Message -->
+    <div class="sidebar-card d-none d-lg-flex">
+        <p class="text-center mb-2"></p>
+    </div>
+
+    <!-- Formulario oculto -->
+    <form id="scrapingForm" action="{% url 'submit_json' %}" method="post" style="display: none;">
+        {% csrf_token %}
+    </form>
+    <form id="analysisForm" action="{% url 'hacer_analisis' %}" method="post" style="display: none;">
+        {% csrf_token %}
+    </form>
+</ul>
+
+<!-- Incluir scripts de Bootstrap y Font Awesome -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script>
+    // Esta función se encarga de enviar el formulario de scraping cuando se llama
+    function submitForm() {
+        // Selecciona el formulario por su ID y lo envía
+        document.getElementById('scrapingForm').submit();
+    }
+    
+    // Esta función se encarga de enviar el formulario de análisis cuando se llama
+    function submitForm2() {
+        // Selecciona el formulario por su ID y lo envía
+        document.getElementById('analysisForm').submit();
+    }
+</script>

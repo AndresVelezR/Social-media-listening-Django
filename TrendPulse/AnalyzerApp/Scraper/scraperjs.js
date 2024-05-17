@@ -1,0 +1,116 @@
+import puppeteer from "puppeteer";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const fs = require('fs');
+
+const scrollLikeHuman = async (page, limit) => {
+  let tws = [];
+  let flag = true;
+  let counter = 0;
+
+  while (flag) {
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+    const viewportHeight = await page.evaluate(() => window.innerHeight);
+    const maxScroll = scrollHeight - viewportHeight;
+
+    await page.mouse.move(0, 0);
+
+    for (let y = 0; y < maxScroll; y += 100) {
+      try {
+        const result = await page.evaluate(() => {
+
+          const tweets = document.querySelectorAll('article[data-testid="tweet"]')
+          const data = [...tweets].map(quote => {
+            const user = quote.querySelector('div[class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-16dba41 r-18u37iz r-1wvb978"] span').innerText
+            const txt = quote.querySelector('div[data-testid="tweetText"]').innerText
+            const reply = quote.querySelector('button[data-testid="reply"]').getAttribute('aria-label')
+            const retweet = quote.querySelector('button[data-testid="retweet"]').getAttribute('aria-label')
+            const like = quote.querySelector('button[data-testid="like"]').getAttribute('aria-label')
+            const time = quote.querySelector('time').getAttribute('datetime')
+            return {
+              'user': user,
+              'txt': txt,
+              'reply': reply,
+              'retweet': retweet,
+              'like': like,
+              'time':time
+            }
+          })
+          return data
+        })
+
+        for (const [key, value] of Object.entries(result)) {
+          if (tws.find((item) => item.user === value.user) === undefined && counter < limit) {
+            tws.push({
+              user_tag: value.user,
+              time_stamp: new Date(value.time),
+              tweet: value.txt,
+              reply: parseInt(value.reply.match(/\d+/)[0]),
+              retweet: parseInt(value.retweet.match(/\d+/)[0]),
+              like: parseInt(value.like.match(/\d+/)[0]),
+            });
+            counter++;
+          }
+          if (counter == limit) {
+            return tws
+          }
+        }
+      }
+      catch { }
+      await page.mouse.wheel({ deltaY: 100 });
+      await new Promise(r => setTimeout(r, 100));
+    }
+  }
+};
+
+(async () => {
+  const browser = await puppeteer.launch(
+    {
+      
+      headless: false,
+    }
+  )
+  const page = await browser.newPage()
+  await page.setViewport({ height: 900, width: 1440 });
+  await page.goto('https://twitter.com/?lang=es')
+  await new Promise(r => setTimeout(r, 5000));
+
+  await page.evaluate(() => {
+    const xpath = '//span[contains(text(), "Iniciar sesión")]';
+    const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+
+    result.iterateNext().click();
+  })
+  await new Promise(r => setTimeout(r, 5000));
+
+  await page.type('input[autocomplete="username"]', "samargo_");
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+  await page.type('input[name="password"]', "1033177913samargo");
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+  await page.type('input[aria-label="Búsqueda"]', 'westcol');
+  await page.keyboard.press('Enter');
+  await new Promise(r => setTimeout(r, 5000));
+
+  const result = await scrollLikeHuman(page, 10);
+  const s = JSON.stringify(result);
+
+  $.ajax({
+        url: "/submit_json/",  // Cambiar la URL a la que deseas enviar el JSON
+        type: "POST",
+        contentType: "application/json",
+        data: s,
+        success: function(response) {
+            alert('JSON enviado correctamente');
+            window.location.href = '/resultado/';
+        },
+        error: function(xhr, status, error) {
+            alert('Error al enviar JSON: ' + error);
+        }
+  });
+  await browser.close();
+  
+
+  
+})();

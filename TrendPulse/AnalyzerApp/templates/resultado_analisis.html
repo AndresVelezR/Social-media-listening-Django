@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Comentarios{% endblock %}
+
+{% block content %}
+    <h1>Comentarios</h1>
+    <div class="row">
+        {% for comment in comments %}
+        <div class="col-md-4 mb-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Usuario: {{ comment.user_tag }}</h5>
+                    <p class="card-text"><strong>Tweet:</strong> {{ comment.tweet }}</p>
+                    <p class="card-text"><strong>Análisis:</strong> {{ comment.analysis }}</p>
+                    <p class="card-text"><strong>Clasificación:</strong> {{ comment.clasification }} / 10</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

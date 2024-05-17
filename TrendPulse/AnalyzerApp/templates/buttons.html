@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SpiderWeb</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+
+<p>SpiderWeb</p>
+
+
+<form action="{% url 'submit_json' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mt-4">Comenzar Scraping</button>
+</form>
+<form action="{% url 'hacer_analisis' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mt-4">Hacer Análisis</button>
+</form>
+
+
+
+</body>
+</html>
