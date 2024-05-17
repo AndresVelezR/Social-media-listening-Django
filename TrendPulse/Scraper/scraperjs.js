@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-require('dotenv').config();
 const fs = require('fs');
 
 const scrollLikeHuman = async (page, limit) => {
@@ -27,12 +26,14 @@ const scrollLikeHuman = async (page, limit) => {
             const reply = quote.querySelector('button[data-testid="reply"]').getAttribute('aria-label')
             const retweet = quote.querySelector('button[data-testid="retweet"]').getAttribute('aria-label')
             const like = quote.querySelector('button[data-testid="like"]').getAttribute('aria-label')
+            const time = quote.querySelector('time').getAttribute('datetime')
             return {
               'user': user,
               'txt': txt,
               'reply': reply,
               'retweet': retweet,
               'like': like,
+              'time':time
             }
           })
           return data
@@ -42,10 +43,11 @@ const scrollLikeHuman = async (page, limit) => {
           if (tws.find((item) => item.user === value.user) === undefined && counter < limit) {
             tws.push({
               user_tag: value.user,
+              time_stamp: new Date(value.time),
               tweet: value.txt,
               reply: parseInt(value.reply.match(/\d+/)[0]),
               retweet: parseInt(value.retweet.match(/\d+/)[0]),
-              like: parseInt(value.like.match(/\d+/)[0])
+              like: parseInt(value.like.match(/\d+/)[0]),
             });
             counter++;
           }
@@ -80,10 +82,10 @@ const scrollLikeHuman = async (page, limit) => {
   })
   await new Promise(r => setTimeout(r, 5000));
 
-  await page.type('input[autocomplete="username"]', process.env.USERNAME);
+  await page.type('input[autocomplete="username"]', "samargo_");
   await page.keyboard.press('Enter');
   await new Promise(r => setTimeout(r, 5000));
-  await page.type('input[name="password"]', process.env.PASSWORD);
+  await page.type('input[name="password"]', "1033177913samargo");
   await page.keyboard.press('Enter');
   await new Promise(r => setTimeout(r, 5000));
   await page.type('input[aria-label="Búsqueda"]', 'westcol');
