@@ -19,7 +19,8 @@ openAI.env
 # Byte-compiled / optimized / DLL files
 *.py[cod]
 *$py.class
-
+.png  
+.jpg
 # C extensions
 *.so
 

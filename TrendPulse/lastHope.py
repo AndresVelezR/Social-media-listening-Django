@@ -83,7 +83,7 @@ async def main():
     await page.type('input[name="password"]', "1033177913samargo")
     await page.keyboard.press('Enter')
     await asyncio.sleep(5)
-    await page.type('input[aria-label="Búsqueda"]', 'westcol')
+    await page.type('input[aria-label="Búsqueda"]', 'eafit')
     await page.keyboard.press('Enter')
     await asyncio.sleep(5)
 
