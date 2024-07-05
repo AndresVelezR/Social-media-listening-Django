@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SpiderWeb</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+
+<p>SpiderWeb</p>
+
+
+<button type="button" onclick="myfunction();">Comenzar</button>
+<form action="{% url 'hacer_analisis' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mt-4">Hacer Análisis</button>
+</form>
+
+<script>
+function myfunction() {
+    //const firstname = document.getElementById("fname").value;
+    //const lastname = document.getElementById("lname").value;
+    //const dict_values = {firstname, lastname};
+    var data = [
+    {
+        "user_tag": "CW+ Noticias\n@CWMasNoticias\n\u00b7\n7h",
+        "time_stamp": "2024-04-11T17:01:36.000Z",
+        "tweet": "COLOMBIA | En las \u00faltimas horas se confirm\u00f3 la venta de la casa de Aida Victoria Merlano. Pues, Luis Villa (Westcol), su actual pareja, explic\u00f3 que Stiven Mesa Londo\u00f1o, cantante de m\u00fasica urbana reconocido como \u2018Blessd\u2019, adquiri\u00f3 la propiedad ubicada en la Loma del Escobero.\u2026",
+        "reply": 177,
+        "retweet": 168,
+        "like": 652
+        
+        
+    },
+    {
+        "user_tag": "EL TRONO\n@ElTronoKL\n\u00b7\n7 abr.",
+        "time_stamp": "2024-04-08T02:22:31.000Z",
+        "tweet": "#KingsLeague | \u00daLTIMA HORA \n\n La clave para que Jhonsito tenga mayor efectividad la tiene WestCol",
+        "reply": 6,
+        "retweet": 6,
+        "like": 343
+        
+        
+    },
+    {
+        "user_tag": "Agudelo\n@Agudelo07_\n\u00b7\n4 abr.",
+        "time_stamp": "2024-04-04T16:34:33.000Z",
+        "tweet": "Los mexichangos y espa\u00f1oles de mierda peleando contra westcol por que no tiene dinero\n\nWestcol con su reloj y su cadena de m\u00e1s de 350k de d\u00f3lares ",
+        "reply": 0,
+        "retweet": 2,
+        "like": 48
+        
+        
+    },
+    {
+        "user_tag": "sof\n@sofval_09\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-05T19:30:23.000Z",
+        "tweet": "nunca Westcol me represent\u00f3 tanto",
+        "reply": 1,
+        "retweet": 5,
+        "like": 9
+        
+        
+    },
+    {
+        "user_tag": "manuel\n@ManuelC_8\n\u00b7\n10 abr.",
+        "time_stamp": "2024-04-10T22:21:38.000Z",
+        "tweet": "JAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJAJA Gracias \n@WestCOL_\n por darle luz a tus seguidores",
+        "reply": 0,
+        "retweet": 1,
+        "like": 5
+        
+        
+    },
+    {
+        "user_tag": "THRIVE\n@ThriveForeverX\n\u00b7\n6 abr.",
+        "time_stamp": "2024-04-06T07:01:53.000Z",
+        "tweet": "Bad Bunny out partying with Columbian Kick streamer Westcol ",
+        "reply": 181,
+        "retweet": 204,
+        "like": 2941
+        
+        
+    },
+    {
+        "user_tag": "South\n@SouthCOL_\n\u00b7\n8 abr.",
+        "time_stamp": "2024-04-09T02:34:40.000Z",
+        "tweet": "Toda tu comunidad te quiere y te admira por todo lo que haz logrado, inspiras a miles de personas, te mandamos \u00e1nimos de parte de todo aquel al que le hayas sacado una sonrisa en alg\u00fan momento. En las buenas y en las malas tu comunidad siempre estar\u00e1. \n@WestCOL_",
+        "reply": 0,
+        "retweet": 50,
+        "like": 979
+        
+        
+    },
+    {
+        "user_tag": "Elektra\n@drayasmin\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-05T17:34:52.000Z",
+        "tweet": "Nauterplay en su \u00faltimo video resume muy bien la pol\u00e9mica entre WestCol e Ibai.\n\nTodo comienza con WestCol diciendo que el tiene en contrato de streaming m\u00e1s grande de toda habla hispana y que gana incluso m\u00e1s que Ibai, que el cree que Ibai nisiquiera tiene contrato actualmente.\u2026",
+        "reply": 7,
+        "retweet": 2,
+        "like": 14
+        
+        
+    },
+    {
+        "user_tag": "Universo Kings League\n@UniversoKingsL\n\u00b7\n4 abr.",
+        "time_stamp": "2024-04-04T12:59:01.000Z",
+        "tweet": "WESTCOL ARREMETE CONTRA LA #KingsLeague \n\n\"Se quedan los patrocinios, se quedan la plata, se quedan la plata de las camisetas, se quedan TODO\"\n\n#KingsLeagueAmericas",
+        "reply": 232,
+        "retweet": 96,
+        "like": 2721
+        
+        
+    },
+    {
+        "user_tag": "Kick Espa\u00f1ol\n@KickEspanol\n\u00b7\n5 abr.",
+        "time_stamp": "2024-04-06T04:32:06.000Z",
+        "tweet": "Ya le dimos uno a \n@WestCOL_\n tambien",
+        "reply": 14,
+        "retweet": 29,
+        "like": 1022
+        
+        
+    },
+    {
+        "user_tag": "SamAlbert\u00f1ol\n@dividirConquis\n\u00b7\n1 abr.",
+        "time_stamp": "2024-03-06T04:32:06.000Z",
+        "tweet": "Este va a ser el mejor proyecto de social media listening y scraping jamas visto",
+        "reply": 999,
+        "retweet": 999,
+        "like": 9999
+        
+        
+    }
+]
+    const s = JSON.stringify(data);
+
+    $.ajax({
+        url: "/submit_json/",  // Cambiar la URL a la que deseas enviar el JSON
+        type: "POST",
+        contentType: "application/json",
+        data: s,
+        success: function(response) {
+            alert('JSON enviado correctamente');
+            window.location.href = '/resultado/';
+        },
+        error: function(xhr, status, error) {
+            alert('Error al enviar JSON: ' + error);
+        }
+    });
+}
+</script>
+
+</body>
+</html>
